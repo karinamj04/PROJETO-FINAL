@@ -86,6 +86,18 @@ selectMedico.addEventListener("change", () => {
     selectDataConsulta.appendChild(new Option(text, value));
   });
 });
+
+//LETRAS MAIORES/MENORES
+
+let currentFontSize = 16;
+
+function changeFontSize(delta) {
+  currentFontSize += delta;
+  if (currentFontSize < 10) currentFontSize = 10;
+  if (currentFontSize > 30) currentFontSize = 30;
+  document.body.style.fontSize = currentFontSize + "px";
+}
+
 //TELA DARK
     let trilho = document.getElementById('trilho')
     let body = document.querySelector('body')
@@ -94,6 +106,8 @@ selectMedico.addEventListener("change", () => {
       trilho.classList.toggle('dark')
       body.classList.toggle('dark')
 });
+
+
 // Máscaras simples para CPF, telefone e data de nascimento
 function aplicarMascara(input, regex, formato) {
   input.addEventListener('input', e => {
