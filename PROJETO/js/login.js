@@ -37,17 +37,17 @@ document.addEventListener("DOMContentLoaded", function () {
   
       
       if (!email || !email.includes("@") || !email.includes(".")) {
-        erros.push("Digite um e-mail vÃ¡lido.");
+        erros.push("Digite um e-mail válido.");
       }
   
       
-      if (!senha || senha.length < 6) {
-        erros.push("A senha deve conter pelo menos 6 caracteres.");
+      if (!senha || senha.length < 8) {
+        erros.push("A senha deve conter pelo menos 8 caracteres.")
       }
   
       if (erros.length > 0) {
         mensagensErro.innerHTML = erros.join("<br>");
-        mensagensErro.classList.remove("d-none");
+        mensagensErro.classList.remove("d-none")   
       } else {
 
         form.submit();

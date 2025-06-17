@@ -140,8 +140,8 @@ function validarFormulario(event) {
   mensagemErro.textContent = "";
   mensagemErro.style.color = "red";
 
-  if (nome.length < 3) {
-    mensagemErro.textContent = "Nome deve ter pelo menos 3 caracteres.";
+  if (nome.length < 10) {
+    mensagemErro.textContent = "Nome deve ter pelo menos 10 caracteres alfabéticos.";
     return;
   }
   if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf)) {
