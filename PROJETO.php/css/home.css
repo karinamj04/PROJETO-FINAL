@@ -1,0 +1,257 @@
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+
+
+header {
+  width: 100%;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+}
+.navigation a {
+  color: #333;
+  text-decoration: none;
+}
+
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1b8836;
+  margin-left: 70px;
+}
+
+/* Estilo da navegação */
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #554d4d;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  position: relative;
+}
+
+/* Efeito ao passar o mouse nos links */
+.navigation a:hover {
+  color: #1cb11c;
+}
+
+/* Estilo do dropdown toggle */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block; 
+}
+
+/* Estilo do menu dropdown */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px 0;
+  min-width: 180px;
+  display: none; 
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Estilo dos links dentro do dropdown */
+.dropdown-item {
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+  color: #1cb11c;
+}
+
+/* Estilo para o divisor do dropdown */
+.dropdown-divider {
+  height: 1px;
+  margin: 5px 0;
+  background-color: #ccc;
+}
+
+
+  /* Estilo do botão */
+  #cadastro {
+    margin-left: 30px; 
+    padding: 8px 20px; 
+    font-size: 16px; 
+    color: white; 
+    background-color: #1b8836; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
+    margin-right: 70px; 
+    font-weight: bold;
+  }
+
+  /* Efeito ao passar o mouse no botão */
+  #cadastro:hover {
+    background-color: #175727; 
+  }
+
+  #cadastro:hover {
+  background-color: #158c15;
+  transform: scale(1.05);
+}
+
+  .navigation {
+    display: flex; 
+    align-items: center; 
+  }
+
+  .texto-esquerda {
+  position: fixed;
+  top: 60%;
+  left: 50px; 
+  transform: translateY(-50%);
+  width: 40%;
+  color: #d41515;
+  text-align: left;
+  font-weight: bold;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 10px rgba(23, 87, 39, 0.3);
+  border-radius: 20px;
+  z-index: 900;
+}
+
+
+.texto-esquerda h1 { 
+    font-size: 36px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: #1b8836;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.texto-esquerda p {
+    font-size: 20px;
+    line-height: 1.6;
+    color:#554d4d;
+    margin-left: 15px;
+}
+
+
+.btn-contato {
+  background-color: #1cb11c;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.btn-contato:hover {
+  background-color: #158c15;
+  transform: scale(1.05);
+}
+
+.btn-contato:active {
+  background-color: #0e5a0e;
+  transform: scale(0.98);
+}
+
+/* RESPONSIVIDADE PARA TELAS MENORES */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .logo {
+    font-size: 22px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .navigation {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .navigation a,
+  #cadastro {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  #cadastro {
+    width: 80%;
+    margin-right: 0;
+    padding: 10px;
+  }
+
+  .texto-esquerda {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .texto-esquerda h1 {
+    font-size: 24px;
+  }
+
+  .texto-esquerda p {
+    font-size: 16px;
+  }
+
+  .texto-esquerda .btn {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+  }
+}
+.navigation a:focus,
+#cadastro:focus,
+.texto-esquerda .btn:focus {
+  outline: 2px solid #1cb11c;
+  outline-offset: 2px;
+}
+
+.collapse-horizontal p {
+  text-align: justify;
+  font-weight: lighter;
+  color: #0e5a0e;
+ 
+}
