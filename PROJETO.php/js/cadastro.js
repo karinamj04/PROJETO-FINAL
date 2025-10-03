@@ -1,89 +1,97 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
   const mensagensErro = document.getElementById('mensagensErro');
 
-  // Carregar dados do localStorage se existirem
-  function carregarDadosFormulario() {
-    const dadosSalvos = JSON.parse(localStorage.getItem('dadosFormulario'));
-    if (dadosSalvos) {
-      document.getElementById('idNome').value = dadosSalvos.nome || '';
-      document.getElementById('idSobrenome').value = dadosSalvos.sobrenome || '';
-      document.getElementById('idCpf').value = dadosSalvos.cpf || '';
-      document.getElementById('sexo').value = dadosSalvos.sexo || '';
-      document.getElementById('idEndereço').value = dadosSalvos.endereco || '';
-      document.getElementById('idBairro').value = dadosSalvos.bairro || '';
-      document.getElementById('idEstado').value = dadosSalvos.estado || '';
-      document.getElementById('idCep').value = dadosSalvos.cep || '';
-      document.getElementById('idCidade').value = dadosSalvos.cidade || '';
-      document.getElementById('email').value = dadosSalvos.email || '';
-      document.getElementById('telefone').value = dadosSalvos.telefone || '';
-      document.getElementById('senha').value = dadosSalvos.senha || '';
-      document.getElementById('confirmaSenha').value = dadosSalvos.confirmaSenha || '';
+  //API DE CEP 
+  document.getElementById('cep').addEventListener('focusout', function () {
+    const raw = this.value.replace(/\D/g, '-');
+    if (raw.length === 9) {
+      fetch('https://viacep.com.br/ws/' + raw + '/json/')
+        .then(r => r.json())
+        .then(data => {
+          if (!data.erro) {
+            document.getElementById('rua').value = data.logradouro || '';
+            document.getElementById('bairro').value = data.bairro || '';
+            document.getElementById('cidade').value = data.localidade || '';
+            document.getElementById('uf').value = data.uf || '';
+          }
+        });
     };
-  };
-carregarDadosFormulario(); // Carregar os dados ao carregar a página
-
+  });
 
   // Máscaras de entrada
-  document.getElementById('idCpf').addEventListener('input', function(e) {
+  document.getElementById('idCpf').addEventListener('input', function (e) {
     e.target.value = e.target.value.replace(/\D/g, '') // Remove caracteres não numéricos
-    .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4'); // Formato do CPF
+      .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4'); // Formato do CPF
   });
 
-  document.getElementById('idCep').addEventListener('input', function(e) {
+  document.getElementById('cep').addEventListener('input', function (e) {
     e.target.value = e.target.value.replace(/\D/g, '') // Remove caracteres não numéricos
-    .replace(/(\d{5})(\d{3})/, '$1-$2'); // Formato do CEP
+      .replace(/(\d{5})(\d{3})/, '$1-$2'); // Formato do CEP
   });
 
-  document.getElementById('telefone').addEventListener('input', function(e) {
+  document.getElementById('telefone').addEventListener('input', function (e) {
     e.target.value = e.target.value.replace(/\D/g, '') // Remove caracteres não numéricos
-    .replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3'); // Formato de telefone
+      .replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3'); // Formato de telefone
   });
 
   // exibição de senha
-  function exibirSenha (){
+  function exibirSenha() {
     var inputSenha = document.getElementById('senha');
     var btnshowPass = document.getElementById('btn-exibirSenha');
 
-    if (inputSenha.type === 'password'){
+    if (inputSenha.type === 'password') {
       inputSenha.setAttribute('type', 'text');
       btnshowPass.classList.replace('bi-eye-fill', 'bi-eye-slash-fill');
     }
-    else{
+    else {
       inputSenha.setAttribute('type', 'password');
       btnshowPass.classList.replace('bi-eye-slash-fill', 'bi-eye-fill');
     }
   };
-    var btnshowPass = document.getElementById('btn-exibirSenha');
-    btnshowPass.addEventListener('click', exibirSenha);
+  var btnshowPass = document.getElementById('btn-exibirSenha');
+  btnshowPass.addEventListener('click', exibirSenha);
 
   // exibição do confirmar senha
-  function apresentarSenha (){ 
+  function apresentarSenha() {
     var inputSenha = document.getElementById('confirmaSenha');
     var btnApresentarSenha = document.getElementById('btn-aparecerSenha');
 
-    if (inputSenha.type === 'password'){
+    if (inputSenha.type === 'password') {
       inputSenha.setAttribute('type', 'text');
       btnApresentarSenha.classList.replace('bi-eye-fill', 'bi-eye-slash-fill');
     }
-    else{
+    else {
       inputSenha.setAttribute('type', 'password');
       btnApresentarSenha.classList.replace('bi-eye-slash-fill', 'bi-eye-fill');
     }
   };
-    var btnApresentarSenha = document.getElementById('btn-aparecerSenha');
-    btnApresentarSenha.addEventListener('click', apresentarSenha);
+  var btnApresentarSenha = document.getElementById('btn-aparecerSenha');
+  btnApresentarSenha.addEventListener('click', apresentarSenha);
 
   // Função para validar o formulário
-  form.addEventListener('submit', function(event) {
+  form.addEventListener('submit', function (event) {
     event.preventDefault();
     let errors = [];
-    
-    // Validação de nome (máximo 60 caracteres alfabéticos)
+
+    // Validação de nome (máximo 100 caracteres alfabéticos)
     const nome = document.getElementById('idNome').value;
-    if (!/^[A-Za-z\s]{1,20}$/.test(nome)) {
-      errors.push("O nome deve ter no máximo 20 caracteres alfabéticos.");
+    if (!/^[A-Za-z\s]{1,100}$/.test(nome)) {
+      errors.push("O nome deve ter no máximo 100 caracteres alfabéticos.");
     }
+
+    // Validação de sobrenome (máximo 100 caracteres alfabéticos)
+    const sobrenome = document.getElementById('idSobrenome').value;
+    if (!/^[A-Za-z\s]{1,100}$/.test(sobrenome)) {
+      errors.push("O sobrenome deve ter no máximo 100 caracteres alfabéticos.");
+    }
+
+    // Validação de nome Materno (máximo 100 caracteres alfabéticos)
+    const nomeMaterno = document.getElementById('idnomeMaterno').value;
+    if (!/^[A-Za-z\s]{1,100}$/.test(nomeMaterno)) {
+      errors.push("O nome materno deve ter no máximo 100 caracteres alfabéticos.");
+    }
+
 
     // Validação de senha (mínimo 8 caracteres)
     const senha = document.getElementById('senha').value;
@@ -104,10 +112,11 @@ carregarDadosFormulario(); // Carregar os dados ao carregar a página
     }
 
     // Validação de CEP (formato: 12345-678)
-    const cep = document.getElementById('idCep').value;
+    const cep = document.getElementById('cep').value;
     if (!/^\d{5}-\d{3}$/.test(cep)) {
       errors.push("O CEP deve estar no formato 12345-678.");
     }
+    //API CEP IRÁ VIR PARA CÁ APÓS A VALIDAÇÃO ---->
 
     // Validação de telefone (formato: (21) 99999-5555)
     const telefone = document.getElementById('telefone').value;
@@ -121,29 +130,8 @@ carregarDadosFormulario(); // Carregar os dados ao carregar a página
       mensagensErro.innerHTML = errors.join('<br>');
     } else {
       mensagensErro.classList.add('d-none');
-      
-      // Salvar os dados no localStorage
-      const dadosFormulario = {
-        nome: document.getElementById('idNome').value,
-        sobrenome: document.getElementById('idSobrenome').value,
-        cpf: document.getElementById('idCpf').value,
-        sexo: document.getElementById('sexo').value,
-        endereco: document.getElementById('idEndereço').value,
-        bairro: document.getElementById('idBairro').value,
-        estado: document.getElementById('idEstado').value,
-        cep: document.getElementById('idCep').value,
-        cidade: document.getElementById('idCidade').value,
-        email: document.getElementById('email').value,
-        telefone: document.getElementById('telefone').value,
-        senha: document.getElementById('senha').value,
-        confirmaSenha: document.getElementById('confirmaSenha').value
-      };
-
-      // Salvar os dados no localStorage
-      localStorage.setItem('dadosFormulario', JSON.stringify(dadosFormulario));
 
       form.submit(); // Submete o formulário se não houver erros
-      window.location.href = "login.php"
     }
   });
 });

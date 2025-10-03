@@ -1,0 +1,18 @@
+<?php
+$servername = "127.0.0.1"; // Ou o IP do seu servidor
+$username = "root";
+$password = "";
+$dbname = "raizesdasaude";
+
+// Cria a conexão
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Verifica a conexão
+if (!$conn) {
+    die("Falha na conexão: " . mysqli_connect_error());
+}else{
+echo "Conectado com sucesso!";
+};
+mysqli_close($conn); // Fecha a conexão
+
+?>
