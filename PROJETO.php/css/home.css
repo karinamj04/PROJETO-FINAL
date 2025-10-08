@@ -1,13 +1,76 @@
 
+:root{
+  --cor-texto-claro:#ffffff;
+  --cor-texto-escuro:#000000;
+  --fundo:#ffffff;
+  --cor-btn:#1b8836;
+  --cor-btn-hover: #18be18;
+  --sombra: #87a8dd;
+  --menu-icon: #000000;
+ 
+  
+}
 
-html, body {
-  height: 100%;
+.darkmode {
+  --cor-texto-claro:#ffffff;
+  --cor-texto-escuro:#eeeeee;
+  --fundo:#051101;
+  --cor-btn:#1b8836;
+  --cor-btn-hover: #18be18;
+  --sombra: #484d53;
+  --menu-icon:#ffffff;
+
+}
+
+
+
+html {
   margin: 0;
   padding: 0;
   
 }
 
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--fundo);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;  
+}
 
+body.darkmode{
+  background-color: var(--fundo);
+}
+
+#ModoEscuro{
+width: 30px;
+height: 30px;
+padding: 0;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 2rem;
+ background-color: var(--cor-btn);
+ color: var(--cor-texto-claro);
+ border-color: var(--cor-texto-claro);
+}
+
+#ModoEscuro i:last-child{
+  display: none;
+
+}
+
+.darkmode #ModoEscuro i:first-child{
+  display: none;
+
+}
+
+.darkmode #ModoEscuro i:last-child{
+  display: block;
+}
 
 
 header {
@@ -18,8 +81,10 @@ header {
   align-items: center;
   background-color: transparent;
 }
+
+
 .navigation a {
-  color: #333;
+  color: var(--cor-media);
   text-decoration: none;
 }
 
@@ -27,8 +92,9 @@ header {
 .logo {
   font-size: 28px;
   font-weight: bold;
-  color: #1b8836;
+  color: var(--cor-btn);
   margin-left: 70px;
+  text-align: center;
 }
 
 /* Estilo da navegação */
@@ -43,7 +109,7 @@ header {
 .nav-item {
   margin-left: 30px;
   text-decoration: none;
-  color: #554d4d;
+  color: var(--cor-texto-escuro);
   font-size: 18px;
   font-weight: bold;
   transition: 0.3s;
@@ -52,7 +118,7 @@ header {
 
 /* Efeito ao passar o mouse nos links */
 .navigation a:hover {
-  color: #1cb11c;
+  color: var(--cor-btn-hover);
 }
 
 /* Estilo do dropdown toggle */
@@ -65,8 +131,8 @@ header {
   position: absolute;
   top: 100%; 
   left: 0;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
+  background-color: var(--cor-texto-claro);
+  border: 1px solid var(--fundo);
   padding: 10px 0;
   min-width: 180px;
   display: none; 
@@ -77,21 +143,26 @@ header {
 /* Estilo dos links dentro do dropdown */
 .dropdown-item {
   padding: 10px 20px;
-  color: #333;
+  color: var(--cor-texto-escuro);
   text-decoration: none;
   font-size: 16px;
 }
 
 .dropdown-item:hover {
-  background-color: #f0f0f0;
-  color: #1cb11c;
+  background-color: var(--fundo);
+  color: var(--cor-btn-hover);
 }
 
 /* Estilo para o divisor do dropdown */
 .dropdown-divider {
   height: 1px;
   margin: 5px 0;
-  background-color: #ccc;
+  background-color: var(--fundo);
+}
+
+/* carousel de imagens*/
+.carousel-inner{
+  height: 24rem;
 }
 
 
@@ -100,8 +171,8 @@ header {
     margin-left: 30px; 
     padding: 8px 20px; 
     font-size: 16px; 
-    color: white; 
-    background-color: #1b8836; 
+    color: var(--cor-texto-claro); 
+    background-color: var(--cor-btn); 
     border: none; 
     border-radius: 5px; 
     cursor: pointer; 
@@ -112,11 +183,11 @@ header {
 
   /* Efeito ao passar o mouse no botão */
   #cadastro:hover {
-    background-color: #175727; 
+    background-color: var(--cor-btn-hover); 
   }
 
   #cadastro:hover {
-  background-color: #158c15;
+  background-color: var(--cor-btn-hover);
   transform: scale(1.05);
 }
 
@@ -126,28 +197,23 @@ header {
   }
 
   .texto-esquerda {
-  position: fixed;
-  top: 60%;
-  left: 50px; 
-  transform: translateY(-50%);
-  width: 40%;
-  color: #d41515;
+    margin: 4rem;
+    padding: 3rem;
+  width: 60%;
   text-align: left;
   font-weight: bold;
   background-color: transparent;
   backdrop-filter: blur(15px);
-  box-shadow: 0 4px 10px rgba(23, 87, 39, 0.3);
+  box-shadow: 0 4px 10px var(--cor-texto-escuro);
   border-radius: 20px;
-  z-index: 900;
 }
 
 
 .texto-esquerda h1 { 
+  text-align: center;
     font-size: 36px;
-    margin-top: 15px;
     margin-bottom: 20px;
-    margin-left: 20px;
-    color: #1b8836;
+    color: var(--cor-btn);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
@@ -155,14 +221,14 @@ header {
 .texto-esquerda p {
     font-size: 20px;
     line-height: 1.6;
-    color:#554d4d;
+    color: var(--cor-texto-escuro);
     margin-left: 15px;
 }
 
 
-.btn-contato {
-  background-color: #1cb11c;
-  color: #fff;
+#btn-Contato {
+  background-color: var(--cor-btn);
+  color: var(--cor-texto-claro);
   font-size: 16px;
   font-weight: bold;
   border: none;
@@ -177,12 +243,12 @@ header {
 }
 
 .btn-contato:hover {
-  background-color: #158c15;
+  background-color: var(--cor-btn-hover);
   transform: scale(1.05);
 }
 
 .btn-contato:active {
-  background-color: #0e5a0e;
+  background-color: var(--cor-texto-escuro);
   transform: scale(0.98);
 }
 
@@ -194,11 +260,6 @@ header {
     padding: 15px;
   }
 
-  .logo {
-    font-size: 22px;
-    margin-left: 0;
-    text-align: center;
-  }
 
   .navigation {
     flex-direction: column;
@@ -232,9 +293,6 @@ header {
     font-size: 16px;
   }
 
-  .texto-esquerda .btn {
-    width: 100%;
-  }
 
   .dropdown-menu {
     position: static;
@@ -245,13 +303,13 @@ header {
 .navigation a:focus,
 #cadastro:focus,
 .texto-esquerda .btn:focus {
-  outline: 2px solid #1cb11c;
+  outline: 2px solid var(--cor-btn);
   outline-offset: 2px;
 }
 
 .collapse-horizontal p {
   text-align: justify;
   font-weight: lighter;
-  color: #0e5a0e;
+  color: var(--cor-btn);
  
 }
