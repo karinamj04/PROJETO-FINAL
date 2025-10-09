@@ -2,12 +2,12 @@ let darkmode = localStorage.getItem('darkmode');
 const botao_escuro = document.getElementById('ModoEscuro');
 
 const enabledDarkmode = () => {
-    document.documentElement.classList.add('darkmode'); // <--- aqui
+    document.body.classList.add('darkmode'); // <--- aqui
     localStorage.setItem('darkmode', 'active');
 }
 
 const disableDarkmode = () => {
-    document.documentElement.classList.remove('darkmode'); // <--- aqui
+    document.body.classList.remove('darkmode'); // <--- aqui
     localStorage.setItem('darkmode', null);
 }
 
