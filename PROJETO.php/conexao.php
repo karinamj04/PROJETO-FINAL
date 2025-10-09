@@ -1,5 +1,5 @@
 <?php
-$servername = "127.0.0.1"; // Ou o IP do seu servidor
+$servername = "localhost"; // Ou o IP do seu servidor
 $username = "root";
 $password = "";
 $dbname = "raizesdasaude";
