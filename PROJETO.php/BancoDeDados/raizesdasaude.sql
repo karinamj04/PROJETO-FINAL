@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/10/2025 às 01:12
+-- Tempo de geração: 10/10/2025 às 01:44
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `usuarios` (
-  `cpf` varchar(13) NOT NULL,
+  `cpf` varchar(14) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `sobrenome` varchar(100) NOT NULL,
   `nomeMaterno` varchar(100) NOT NULL,
@@ -42,9 +42,7 @@ CREATE TABLE `usuarios` (
   `senha` varchar(200) NOT NULL,
   `telefoneCelular` varchar(15) NOT NULL,
   `DataNascimento` date NOT NULL,
-  `resultado` varchar(255) NOT NULL,
-  `pergunta_id` tinyint(4) DEFAULT NULL,
-  `tipo` enum('paciente','admin','recepcionista') DEFAULT NULL,
+  `tipo` enum('paciente','admin','recepcionista') DEFAULT 'paciente',
   `criado_em` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -52,9 +50,9 @@ CREATE TABLE `usuarios` (
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`cpf`, `nome`, `sobrenome`, `nomeMaterno`, `sexo`, `endereco`, `bairro`, `estado`, `cep`, `cidade`, `email`, `senha`, `telefoneCelular`, `DataNascimento`, `resultado`, `pergunta_id`, `tipo`, `criado_em`) VALUES
-('', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', NULL, NULL, '2025-09-30 00:55:09'),
-('171.344.647', 'Pedro', 'Marques', 'Mara', 'M', 'Rua Visconde de Niterói', 'Mangueira', 'RJ', '20943-000', 'Rio de Janeiro', 'pedromarquess2006@gmail.com', '$2y$10$1f6aqiOveEk8aRTJ5uvXN.Qm/rILW.ZvJnpudzZSGXWAiIx5cJT9G', '(21) 97286-4857', '2006-04-21', '', NULL, NULL, '2025-10-09 23:02:39');
+INSERT INTO `usuarios` (`cpf`, `nome`, `sobrenome`, `nomeMaterno`, `sexo`, `endereco`, `bairro`, `estado`, `cep`, `cidade`, `email`, `senha`, `telefoneCelular`, `DataNascimento`, `tipo`, `criado_em`) VALUES
+('171.344.647-25', 'Pedro', 'Marques', 'Mara', 'M', 'Rua Visconde de Niterói', 'Mangueira', 'RJ', '20943-000', 'Rio de Janeiro', 'pedromarquess2006@gmail.com', '$2y$10$gYdzpFe81jkcyRRvJvklTeKuLOeyZtDXi4gHtAscX53LxbTeJv2Mq', '(21) 97286-4857', '2006-01-21', 'paciente', '2025-10-09 23:41:00'),
+('313.123.233-22', 'dwadwa', 'dwadawdwa', 'dwadw', 'M', 'Rua Teodoro da Silva', 'Vila Isabel', 'RJ', '20560-000', 'Rio de Janeiro', 'rafa.reis20032003@gmail.comdwad', '$2y$10$g24MBcxRNoTmQFbqeWGjsu8038LfOe.M34gEFcjw/DVlMcfJNc9YC', '(21) 97286-4222', '3321-12-23', 'paciente', '2025-10-09 23:42:29');
 
 --
 -- Índices para tabelas despejadas

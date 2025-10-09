@@ -22,12 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Criptografa a senha antes de enviar para o banco
     $hash = password_hash($senha, PASSWORD_DEFAULT);
-    $hash = password_hash($DataNascimento, PASSWORD_DEFAULT);
-    $hash = password_hash($NomeMaterno, PASSWORD_DEFAULT);
+    $hash = hash($DataNascimento, PASSWORD_DEFAULT);
+    $hash = hash($NomeMaterno, PASSWORD_DEFAULT);
 
     // Prepara o SQL para evitar SQL Injection
     $sql = "INSERT INTO usuarios 
-    (cpf, nome, sobrenome, nomeMaterno, sexo, endereco, bairro, estado, cep, cidade, email, senha, telefoneCelular, DataNascimento) 
+    (cpf, nome, sobrenome, nomeMaterno, sexo, endereco, bairro, estado, cep, cidade, email, senha, telefoneCelular, DataNascimento)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
