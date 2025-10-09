@@ -4,6 +4,7 @@ body {
     background-image: url('ImagensCds/novaTela.jpg');
     background-size: cover;
     background-position: center;
+    color: #fff !important;
     background-attachment: fixed;
     position: relative;
     background-color: var(--cor-fundo-claro);
