@@ -1,21 +1,6 @@
 <?php
 
-  include('conexaoBancoDados/conexao.php')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+include('conexaoBancoDados/conexao.php')
 
 
 ?>
@@ -43,7 +28,7 @@
     <h5>Estamos quase lá</h5>
     <p>Agora é só preencher o formulário abaixo para receber o seu acesso. Simples assim!</p>
     <!--CADASTRO-->
-    <form method="post" action="codigoMaju/conexao.php" autocomplete="on">
+    <form method="post" action="conexaoBancoDados/conexao.php" autocomplete="on">
 
       <div class="row">
         <div class="col-md-6 mb-3">
@@ -54,7 +39,12 @@
           <label for="idSobrenome" class="form-label">Sobrenome</label>
           <input type="text" class="form-control" id="idSobrenome" required placeholder="Digite seu sobrenome">
         </div>
-        <div class="col-md-12 mb-4">
+        <div class="col-md-6 mb-4">
+          <label for="idDataNascimento" class="form-label">Data de Nascimento</label>
+          <input type="date" class="form-control" id="idDataNascimento" required>
+        </div>
+
+        <div class="col-md-6 mb-4">
           <label for="idnomeMaterno" class="form-label">Nome Materno</label>
           <input type="text" class="form-control" id="idnomeMaterno" required placeholder="Digite o nome da sua mãe">
         </div>
