@@ -1,5 +1,4 @@
 <?php
-include ('conexao.php');
 include ('inseri.php');
 ?>
 <!DOCTYPE html>
@@ -26,7 +25,7 @@ include ('inseri.php');
     <h5>Estamos quase lá</h5>
     <p>Agora é só preencher o formulário abaixo para receber o seu acesso. Simples assim!</p>
     <!--CADASTRO-->
-    <form method="post" action="conexao.php" autocomplete="on">
+    <form method="post" action="inseri.php" autocomplete="on">
 
       <div class="row">
         <div class="col-md-6 mb-3">
