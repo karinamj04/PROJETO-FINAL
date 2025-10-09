@@ -38,39 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->execute()){
         header('Location: login.php');
-    } else {
-        echo "❌ Erro ao cadastrar usuário: " . $stmt->error;
+        exit;
     };
-
     $stmt->close();
     $conn->close();
 }
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
