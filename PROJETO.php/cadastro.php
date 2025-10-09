@@ -1,37 +1,6 @@
 <?php
-
-include('conexaoBancoDados/conexao.php');
-
-if ($_SERVER ['REQUEST_METHOD'] === 'POST')
-//	Recebendo	dados	do	formulário
-$nome =	$_POST['nome'];
-$sobrenome	=	$_POST['sobrenome'];
-$DataNascimento =	$_POST['dataNascimento'];
-$NomeMaterno	=	$_POST['nomeMaterno'];
-$Cpf	=	$_POST['cpf'];
-$sexo	=	$_POST['sexo'];
-$cep	=	$_POST['cep'];
-$endereco	=	$_POST['endereco'];
-$bairro	=	$_POST['bairro'];
-$estado	=	$_POST['estado'];
-$cidade =	$_POST['cidade'];
-$email	=	$_POST['email'];
-$senha	=	$_POST['senha'];
-$telefone	=	$_POST['telefoneCelular'];
-// Preparando	comando	SQL
-$hash = password_hash($senha, PASSWORD_DEFAULT);
-$sql	=	"INSERT	INTO	usuarios	(cpf,nome,sobrenome,nomeMaterno,sexo,endereco,bairro,estado,cep,cidade,email,senha,telefoneCelular,DataNascimento)	
-VALUES	(?,	?, ?,	?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//	Usando	prepared	statement	para	segurança
-$stmt	=	$conexao->prepare($sql);
-$stmt->bind_param("ssis", $nome, $sobrenome, $DataNascimento, $NomeMaterno, $Cpf, $sexo, $cep, $endereco, $bairro, $estado, $cidade, $email, $senha, $telefone);
-if	($stmt->execute())	{
- header("location: login.php");
-}	else	{
-echo	"❌ Erro:	".	$stmt->error;
-}
-$stmt->close();
-$conexao->close()
+include ('conexao.php');
+include ('inseri.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -57,7 +26,7 @@ $conexao->close()
     <h5>Estamos quase lá</h5>
     <p>Agora é só preencher o formulário abaixo para receber o seu acesso. Simples assim!</p>
     <!--CADASTRO-->
-    <form method="post" action="conexaoBancoDados/conexao.php" autocomplete="on">
+    <form method="post" action="conexao.php" autocomplete="on">
 
       <div class="row">
         <div class="col-md-6 mb-3">

@@ -5,10 +5,8 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-     color: #ffffff;
     position: relative;
     background-color: var(--cor-fundo-claro);
-    color: var(--cor-texto-claro);
     transition: 0.1s, color 0.1s; 
 }
 /* 2. Camada de Desfoque no Fundo */
