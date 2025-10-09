@@ -7,14 +7,12 @@
   --cor-btn-hover: #18be18;
   --sombra: #87a8dd;
   --menu-icon: #000000;
- 
-  
+  --fundoEscuro:#051101;
 }
 
 .darkmode {
   --cor-texto-claro:#ffffff;
   --cor-texto-escuro:#eeeeee;
-  --fundo:#051101;
   --cor-btn:#1b8836;
   --cor-btn-hover: #18be18;
   --sombra: #484d53;
@@ -41,7 +39,7 @@ body {
 }
 
 body.darkmode{
-  background-color: var(--fundo);
+  background-color: var(--fundoEscuro);
 }
 
 #ModoEscuro{
