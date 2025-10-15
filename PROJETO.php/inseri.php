@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Criptografa a senha antes de enviar para o banco
     $hash = password_hash($senha, PASSWORD_DEFAULT);
 
+    //Validação para saber se ja existe o email e o cpf existente dentro do banco
+
     // Conexão com o banco
     include 'conexao.php'; 
 
@@ -39,7 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()){
         header('Location: login.php');
         exit;
-    };
+    }else{
+        header('Location: erroGeral.php');
+    }
     $stmt->close();
     $conn->close();
 }
