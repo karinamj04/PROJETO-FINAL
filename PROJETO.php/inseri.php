@@ -22,8 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Criptografa a senha antes de enviar para o banco
     $hash = password_hash($senha, PASSWORD_DEFAULT);
-    $hash = password_hash($DataNascimento, PASSWORD_DEFAULT);
-    $hash = password_hash($NomeMaterno, PASSWORD_DEFAULT);
+    //Validação para saber se ja existe o email e o cpf existente dentro do banco
+
+    // Conexão com o banco
+    include 'conexao.php'; 
 
     // Prepara o SQL para evitar SQL Injection
     $sql = "INSERT INTO usuarios 
@@ -52,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         header('Location: login.php');
         exit;
-    } else {
-        echo "❌ Erro ao cadastrar usuário: " . $stmt->error;
+    }else{
+        header('Location: erroGeral.php');
     }
     $stmt->close();
     $conn->close();
