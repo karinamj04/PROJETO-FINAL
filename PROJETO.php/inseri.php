@@ -1,6 +1,9 @@
 <?php
+// Conexão com o banco
+include ('conexao.php');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+
     // Recebendo dados do formulário
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
@@ -19,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Criptografa a senha antes de enviar para o banco
     $hash = password_hash($senha, PASSWORD_DEFAULT);
-
     //Validação para saber se ja existe o email e o cpf existente dentro do banco
 
     // Conexão com o banco
@@ -32,13 +34,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param(
-        "ssssssssssssss", 
-        $Cpf, $nome, $sobrenome, $NomeMaterno, $sexo, 
-        $endereco, $bairro, $estado, $cep, $cidade, 
-        $email, $hash, $telefone, $DataNascimento
+        "ssssssssssssss",
+        $Cpf,
+        $nome,
+        $sobrenome,
+        $NomeMaterno,
+        $sexo,
+        $endereco,
+        $bairro,
+        $estado,
+        $cep,
+        $cidade,
+        $email,
+        $hash,
+        $telefone,
+        $DataNascimento
     );
 
-    if ($stmt->execute()){
+    if ($stmt->execute()) {
         header('Location: login.php');
         exit;
     }else{
@@ -47,4 +60,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->close();
     $conn->close();
 }
-?>

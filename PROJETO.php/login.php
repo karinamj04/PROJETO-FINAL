@@ -1,3 +1,19 @@
+<?php
+include('validacao.php');
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
