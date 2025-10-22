@@ -56,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }else{
         header('Location: erroGeral.php');
+        exit;
     }
     $stmt->close();
     $conn->close();

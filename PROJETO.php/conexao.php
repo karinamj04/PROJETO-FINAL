@@ -5,9 +5,10 @@ $password = "";
 $dbname = "raizesdasaude";
 
 // Cria a conexão
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conexao = mysqli_connect($servername, $username, $password, $dbname);
 
 // Verifica a conexão
-if (!$conn) {
-    die("Falha na conexão: " . mysqli_connect_error());
+if (!$conexao) {
+    die("Falha na conexão: ".mysqli_connect_error());
+};
 ?>
