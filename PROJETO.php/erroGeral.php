@@ -17,7 +17,7 @@
             <p class="fs-5 text-muted mb-4">
                 Ocorreu um erro inesperado ao processar o cadastro. Tente novamente mais tarde.
             </p>
-            <button class="btn btn-success px-4" onclick="window.location.href='cadastro.php'">Voltar ao Cadastro</button>
+            <button class="btn btn-success px-4" onclick="window.location.href='home.php'">Voltar para HOME</button>
         </div>
     </div>
 </body>

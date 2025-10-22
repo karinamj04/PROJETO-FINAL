@@ -1,9 +1,12 @@
+CREATE DATABASE raizesdasaude;
+USE raizesdasaude;
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/10/2025 às 01:12
+-- Tempo de geração: 22/10/2025 às 03:08
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -28,7 +31,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `usuarios` (
-  `cpf` varchar(13) NOT NULL,
+  `cpf` varchar(14) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `sobrenome` varchar(100) NOT NULL,
   `nomeMaterno` varchar(100) NOT NULL,
@@ -42,19 +45,9 @@ CREATE TABLE `usuarios` (
   `senha` varchar(200) NOT NULL,
   `telefoneCelular` varchar(15) NOT NULL,
   `DataNascimento` date NOT NULL,
-  `resultado` varchar(255) NOT NULL,
-  `pergunta_id` tinyint(4) DEFAULT NULL,
-  `tipo` enum('paciente','admin','recepcionista') DEFAULT NULL,
+  `tipo` enum('paciente','admin','recepcionista') DEFAULT 'paciente',
   `criado_em` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`cpf`, `nome`, `sobrenome`, `nomeMaterno`, `sexo`, `endereco`, `bairro`, `estado`, `cep`, `cidade`, `email`, `senha`, `telefoneCelular`, `DataNascimento`, `resultado`, `pergunta_id`, `tipo`, `criado_em`) VALUES
-('', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', NULL, NULL, '2025-09-30 00:55:09'),
-('171.344.647', 'Pedro', 'Marques', 'Mara', 'M', 'Rua Visconde de Niterói', 'Mangueira', 'RJ', '20943-000', 'Rio de Janeiro', 'pedromarquess2006@gmail.com', '$2y$10$1f6aqiOveEk8aRTJ5uvXN.Qm/rILW.ZvJnpudzZSGXWAiIx5cJT9G', '(21) 97286-4857', '2006-04-21', '', NULL, NULL, '2025-10-09 23:02:39');
 
 --
 -- Índices para tabelas despejadas
