@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `usuarios` (
-  `cpf` varchar(14) NOT NULL,
+  `cpf` varchar(15) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `sobrenome` varchar(100) NOT NULL,
   `nomeMaterno` varchar(100) NOT NULL,
