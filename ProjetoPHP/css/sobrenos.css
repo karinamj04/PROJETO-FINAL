@@ -1,0 +1,130 @@
+
+
+header {
+  width: 100%;
+  padding: 20px 30px;
+  background-color: transparent;
+}
+
+
+h2.logo {
+  color: #1b8836;
+  font-size: 28px;
+  font-weight: bold;
+  margin-left: 70px;
+  margin-right: 100px;
+  cursor: default;
+}
+
+.nav-item{
+  margin-left: 30px;
+  text-decoration: none;
+  color: #554d4d;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  position: relative;
+}
+
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .dropdown-item:hover {
+  color: #1cb11c;
+}
+
+#cadastro {
+  padding: 8px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #1b8836;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#cadastro:hover {
+  background-color: #175727;
+}
+
+
+
+  /* Layout principal */
+.sobre-nos {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; 
+    font-style: bold;
+}
+
+  
+  
+.texto {
+    width: 75%;
+
+}
+  
+.caixa-transparente {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: #333;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+}
+  
+.caixa-transparente:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .caixa-transparente h1 {
+    margin-bottom: 1rem;
+    color: #2e7d32;
+  }
+  
+  .caixa-transparente p {
+    line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .caixa-transparente ul {
+    padding-left: 1.2rem;
+    margin: 1rem 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Imagens dos integrantes */
+  .imagens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+  
+  .imagens img {
+    width: 160px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .imagens img:hover {
+    transform: scale(1.2);
+  }
+
+  /* Remover margem padrão do botão no mobile */
+@media (max-width: 991.98px) {
+  #cadastro {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+}

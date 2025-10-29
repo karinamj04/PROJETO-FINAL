@@ -1,0 +1,92 @@
+/* Fonte padrão da página */
+body {
+  font-family: 'Poppins', sans-serif; /* Fonte moderna */
+  background-color: #f4fdf6;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Container central da página */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 10px;
+  align-items: center;
+}
+
+/* Título da página */
+h1 {
+  text-align: center;
+  color: #2e7d32;
+}
+
+#paragrafo  {
+  text-align: center;  
+  margin-top: 20px;
+}
+ 
+/* Estilo dos cards de agendamento */
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #cdeccd;
+  padding: 15px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Card após confirmação */
+/* Cor de fundo verde suave para cards confirmados */
+.confirmado {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+  transition: background-color 0.3s ease;
+}
+
+
+/* Parágrafos dentro do card */
+.card p {
+  margin: 5px 0;
+}
+
+/* Botões dentro dos cards */
+.botoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Estilo base dos botões */
+.botoes button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Botão Confirmar */
+.confirmar {
+  background-color: #4caf50;
+}
+
+/* Botão Cancelar */
+.cancelar {
+  background-color: #f44336;
+}
+
+.sair {
+  background-color: #155724;
+}
+
+/* Botão para agendar nova consulta */
+.botao-agendar {
+  display: inline-block;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
